@@ -1,4 +1,4 @@
-mavenJob('Jenkins Tutorial Demo - Application 1 (DSL)') {
+mavenJob('Build Application 1 (DSL)') {
     description 'Build job for Jenkins Tutorial / Application 1'
 
     logRotator {

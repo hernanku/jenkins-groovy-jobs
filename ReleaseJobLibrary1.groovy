@@ -1,4 +1,4 @@
-mavenJob('Jenkins Tutorial Demo - Library 1 - Release (DSL)') {
+mavenJob('Library 1 - Release (DSL)') {
     description 'Release job for Jenkins Tutorial / Library 1'
 
     logRotator {
@@ -72,28 +72,28 @@ mavenJob('Jenkins Tutorial Demo - Library 1 - Release (DSL)') {
                 }
 				'''.stripIndent()
 
-        maven {
-            mavenInstallation 'Latest'
-            goals 'versions:set ' +
-                    '-DnewVersion=${releaseVersion} ' +
-                    '-DgenerateBackupPoms=false'
-            rootPOM "library1/pom.xml"
-        }
+        // maven {
+        //     mavenInstallation 'Latest'
+        //     goals 'versions:set ' +
+        //             '-DnewVersion=${releaseVersion} ' +
+        //             '-DgenerateBackupPoms=false'
+        //     rootPOM "library1/pom.xml"
+        // }
 
-        maven {
-            mavenInstallation 'Latest'
-            goals 'versions:use-releases ' +
-                    '-DgenerateBackupPoms=false ' +
-                    '-DprocessDependencyManagement=true'
-            rootPOM "library1/pom.xml"
-        }
+        // maven {
+        //     mavenInstallation 'Latest'
+        //     goals 'versions:use-releases ' +
+        //             '-DgenerateBackupPoms=false ' +
+        //             '-DprocessDependencyManagement=true'
+        //     rootPOM "library1/pom.xml"
+        // }
 
-        shell '''\
-              if find library1/ -name 'pom.xml' | xargs grep -n "SNAPSHOT"; then
-                echo 'SNAPSHOT versions not allowed in a release\'
-                exit 1
-              fi
-              '''.stripIndent()
+        // shell '''\
+        //       if find library1/ -name 'pom.xml' | xargs grep -n "SNAPSHOT"; then
+        //         echo 'SNAPSHOT versions not allowed in a release\'
+        //         exit 1
+        //       fi
+        //       '''.stripIndent()
     }
 
     rootPOM 'library1/pom.xml'
