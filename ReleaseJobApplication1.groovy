@@ -20,7 +20,7 @@ mavenJob('Jenkins Tutorial Demo - Application 1 - Release (DSL)') {
     scm {
         git {
             remote {
-                url 'git@gitlab.com:SvenWoltmann/jenkins-tutorial-demo.git'
+                url 'git@github.com:hernanku/ui-content-app.git'
             }
 
             branch 'origin/master'

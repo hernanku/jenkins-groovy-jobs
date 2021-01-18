@@ -16,7 +16,7 @@ mavenJob('Jenkins Tutorial Demo - Application 1 (DSL)') {
     scm {
         git {
             remote {
-                url 'git@gitlab.com:SvenWoltmann/jenkins-tutorial-demo.git'
+                url 'git@github.com:hernanku/ui-content-app.git'
             }
 
             branch '$Branch'
@@ -40,7 +40,6 @@ mavenJob('Jenkins Tutorial Demo - Application 1 (DSL)') {
         scm 'H/15 * * * *'
         snapshotDependencies true
     }
-
-    rootPOM 'application1/pom.xml'
+    
     goals 'clean install'
 }
