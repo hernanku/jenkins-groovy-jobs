@@ -99,37 +99,37 @@ mavenJob('Application 1 - Release (DSL)') {
     rootPOM 'application1/pom.xml'
     goals 'clean install'
 
-    postBuildSteps('SUCCESS') {
-        maven {
-            mavenInstallation 'Latest'
-            goals 'scm:checkin ' +
-                    '-Dmessage="Release version ${project.artifactId}:${releaseVersion}" ' +
-                    '-DdeveloperConnectionUrl=scm:git:git@gitlab.com:SvenWoltmann/jenkins-tutorial-demo.git'
-            rootPOM "application1/pom.xml"
-        }
+    // postBuildSteps('SUCCESS') {
+    //     maven {
+    //         mavenInstallation 'Latest'
+    //         goals 'scm:checkin ' +
+    //                 '-Dmessage="Release version ${project.artifactId}:${releaseVersion}" ' +
+    //                 '-DdeveloperConnectionUrl=scm:git:git@gitlab.com:SvenWoltmann/jenkins-tutorial-demo.git'
+    //         rootPOM "application1/pom.xml"
+    //     }
 
-        maven {
-            mavenInstallation 'Latest'
-            goals 'scm:tag ' +
-                    '-Dtag=${project.artifactId}-${releaseVersion} ' +
-                    '-DdeveloperConnectionUrl=scm:git:git@gitlab.com:SvenWoltmann/jenkins-tutorial-demo.git'
-            rootPOM "application1/pom.xml"
-        }
+    //     maven {
+    //         mavenInstallation 'Latest'
+    //         goals 'scm:tag ' +
+    //                 '-Dtag=${project.artifactId}-${releaseVersion} ' +
+    //                 '-DdeveloperConnectionUrl=scm:git:git@gitlab.com:SvenWoltmann/jenkins-tutorial-demo.git'
+    //         rootPOM "application1/pom.xml"
+    //     }
 
-        maven {
-            mavenInstallation 'Latest'
-            goals 'versions:set ' +
-                    '-DnewVersion=${nextSnapshotVersion} ' +
-                    '-DgenerateBackupPoms=false'
-            rootPOM "application1/pom.xml"
-        }
+    //     maven {
+    //         mavenInstallation 'Latest'
+    //         goals 'versions:set ' +
+    //                 '-DnewVersion=${nextSnapshotVersion} ' +
+    //                 '-DgenerateBackupPoms=false'
+    //         rootPOM "application1/pom.xml"
+    //     }
 
-        maven {
-            mavenInstallation 'Latest'
-            goals 'scm:checkin ' +
-                    '-Dmessage="Switch to next snapshot version: ${project.artifactId}:${nextSnapshotVersion}" ' +
-                    '-DdeveloperConnectionUrl=scm:git:git@gitlab.com:SvenWoltmann/jenkins-tutorial-demo.git'
-            rootPOM "application1/pom.xml"
-        }
-    }
+    //     maven {
+    //         mavenInstallation 'Latest'
+    //         goals 'scm:checkin ' +
+    //                 '-Dmessage="Switch to next snapshot version: ${project.artifactId}:${nextSnapshotVersion}" ' +
+    //                 '-DdeveloperConnectionUrl=scm:git:git@gitlab.com:SvenWoltmann/jenkins-tutorial-demo.git'
+    //         rootPOM "application1/pom.xml"
+    //     }
+    // }
 }
