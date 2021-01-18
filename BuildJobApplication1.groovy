@@ -40,6 +40,6 @@ mavenJob('Jenkins Tutorial Demo - Application 1 (DSL)') {
         scm 'H/15 * * * *'
         snapshotDependencies true
     }
-    
+    rootPOM 'library1/pom.xml'
     goals 'clean install'
 }
